@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
-const ProductList = () => {
+const ProductList = ({ query }) => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -9,7 +9,7 @@ const ProductList = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/products/products')
+                const response = await fetch(`http://127.0.0.1:8000/products/products?tipo=${query}`)
                 if (!response.ok) {
                     throw new Error('Error al obtener los productos')
                 }
@@ -22,7 +22,7 @@ const ProductList = () => {
             }
         }
         fetchProducts();
-    },[]);
+    },[query]);
 
     if (isLoading) {
         return <p>Cargando...</p>
