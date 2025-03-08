@@ -1,4 +1,4 @@
-import Card from "./components/Card"
+import ProductList from "./components/ProductList"
 import Navbar from "./components/Navbar"
 import Filtros from "./components/Filtros"
 
@@ -14,12 +14,7 @@ function App() {
         </div>
 
         <div className="grid grid-cols-2 gap-2">
-          <div className="grid grid-cols-2 gap-2">
-            <Card title="Card1" description="Esta es una descripción"/>
-            <Card title="Card2" description="Esta es una descripción"/>
-            <Card title="Card3" description="Esta es una descripción"/>
-            <Card title="Card4" description="Esta es una descripción"/>
-          </div>
+          <ProductList />
 
           <div>
 
