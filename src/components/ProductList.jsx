@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
-const ProductList = ({ query }) => {
+const ProductList = ({ query, agregarProducto }) => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -35,7 +35,7 @@ const ProductList = ({ query }) => {
     return (
         <div className="grid grid-cols-2 gap-2 rounded-xl ">
             {products.map(product => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} agregarProducto={agregarProducto} />
             ))}
         </div>
     );

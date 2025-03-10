@@ -5,6 +5,15 @@ import Filtros from "./components/Filtros"
 
 function App() {
   const [query, setQuery] = useState('desayuno')
+  // usestate para la orden actual
+  const [orden, setOrden] = useState([])
+
+  // funcion agregar producto a la orden
+  function agregarProducto(producto) {
+    // agregar producto a la orden
+    setOrden([...orden, producto])
+    console.log(producto)
+  }
 
   return (
     <>
@@ -16,13 +25,15 @@ function App() {
         </div>
 
         <div className="grid grid-cols-2 gap-2">
-          <ProductList query={query} />
+          <ProductList query={query} agregarProducto={agregarProducto} />
 
           <div>
 
           </div>
         </div>
       </div>
+      // Aquí va el componente de orden
+      // componente orden tiene la tarea de listar los productos de la orden y calcular el total
     </>
   )
 }
