@@ -1,18 +1,25 @@
 const Navbar = () => {
     return (
-        <div className="bg-blue-600 text-white p-4">
-            <div className="container mx-auto flex justify-between items-center">
+        <header className="bg-blue-500 text-white dark:bg-blue-900 dark:text-gray-200">
+            <nav className="container mx-auto flex justify-between items-center py-4">
                 {/* Logo o Título */}
-                <div className="font-bold text-xl">
-                    Burger Queen
-                </div>
+                <a href="#" className="font-bold text-xl">Burger Queen</a>
 
                 {/* Links de Navegación */}
-                <div className="flex space-x-4">
+                <ul className="flex space-x-4">
+                    <li className="hover:text-gray-200">
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li className="hover:text-gray-200">
+                        <a href="#">Acerca</a>
+                    </li>
+                    <li className="hover:text-gray-200">
+                        <a href="#">Servicios</a>
+                    </li>
 
-                </div>
-            </div>
-        </div>
+                </ul>
+            </nav>
+        </header>
     );
 };
 
