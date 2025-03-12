@@ -1,41 +1,47 @@
-import { useState } from "react"
-import ProductList from "./components/ProductList"
-import Navbar from "./components/Navbar"
-import Filtros from "./components/Filtros"
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 function App() {
-  const [query, setQuery] = useState('desayuno')
-  // usestate para la orden actual
-  const [orden, setOrden] = useState([])
 
-  // funcion agregar producto a la orden
-  function agregarProducto(producto) {
-    // agregar producto a la orden
-    setOrden([...orden, producto])
-    console.log(producto)
-  }
+  // Estado para verificar si el usuario está autenticado
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem('token') ? true : false
+  );
 
   return (
-    <>
-      <Navbar />
 
-      <div className="container mx-auto p-4">
-        <div className="grid grid-cols-2 gap-2 mt-4 mb-4">
-          <Filtros setQuery={setQuery} />
-        </div>
+    <div>
+      <Router>
+        <Navbar
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+        />
+        <Routes>
+          <Route 
+            path="/login" 
+            element={
+              isAuthenticated ?
+                <Navigate to="/home" /> :
+                <Login setIsAuthenticated={setIsAuthenticated} />
+            }
+          />
 
-        <div className="grid grid-cols-2 gap-2">
-          <ProductList query={query} agregarProducto={agregarProducto} />
-
-          <div>
-
-          </div>
-        </div>
-      </div>
-      // Aquí va el componente de orden
-      // componente orden tiene la tarea de listar los productos de la orden y calcular el total
-    </>
-  )
-}
+          <Route 
+            path="/home" 
+            element={
+              isAuthenticated ?
+                <Home/>:
+                <Navigate to="/login" />
+            }
+          />
+          <Route path="/" element={<Navigate to={isAuthenticated ? "/home" : "/login"} />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+};
 
 export default App
