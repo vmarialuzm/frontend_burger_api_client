@@ -117,7 +117,15 @@ const Home = () => {
     });
     setOrden({ ...orden, products: nuevosProductos });
   };
-    
+
+  const eliminarProducto = (productoId) => {
+    const nuevosProductos = orden.products.filter(item => 
+      item.product.id !== productoId
+    );
+    setOrden({ ...orden, products: nuevosProductos });
+  };
+
+  
   return (
     <div className="container mx-auto p-4">
         <div className="grid grid-cols-2 gap-2 mt-4 mb-4">
@@ -138,6 +146,7 @@ const Home = () => {
               cambiarCantidad={cambiarCantidad}
               incrementarProducto={incrementarProducto}
               decrementarProducto={decrementarProducto}
+              eliminarProducto={eliminarProducto}
             />
         </div>
     </div>

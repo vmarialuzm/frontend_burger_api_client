@@ -1,4 +1,6 @@
-const Order = ({ orden, finalizarOrden, incrementarProducto, decrementarProducto }) => {
+import { TrashIcon } from '@heroicons/react/24/outline';
+
+const Order = ({ orden, finalizarOrden, incrementarProducto, decrementarProducto, eliminarProducto }) => {
 
   const total = orden.products.reduce((acum, item) => acum + (item.qty * item.product.price), 0);
 
@@ -10,7 +12,7 @@ const Order = ({ orden, finalizarOrden, incrementarProducto, decrementarProducto
       <ul className="divide-y divide-gray-200 mb-4">
 
         {orden.products.map((item, index) => (
-          <li key={index} className="flex items-center justify-between py-2">
+          <li key={index} className="grid grid-cols-3 gap-4 items-center py-2">
             
             <div>
               <p className="font-medium">{item.product.name}</p>
@@ -19,7 +21,7 @@ const Order = ({ orden, finalizarOrden, incrementarProducto, decrementarProducto
               </p>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center justify-center">
               <button 
                 onClick={() => decrementarProducto(item.product.id)} 
                 className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-3 rounded-l"
@@ -34,6 +36,12 @@ const Order = ({ orden, finalizarOrden, incrementarProducto, decrementarProducto
                 className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-3 rounded-r"
               >
                 +
+              </button>
+            </div>
+
+            <div className='flex justify-end'>
+              <button onClick={() => eliminarProducto(item.product.id)}>
+                <TrashIcon className="size-6 text-blue-500" />
               </button>
             </div>
           </li>
