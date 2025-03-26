@@ -1,15 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const links = [
-    {
-        name: "Login",
-        href: "./login"
-    },
-    {
-        name: "Home",
-        href: "./home"
-    },
-]
 
 const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
     const navigate = useNavigate();
@@ -37,6 +27,12 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
                         <>
                             <li>
                                 <Link to="/home">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/opciones">Opciones</Link>
+                            </li>
+                            <li>
+                                <Link to="/pedidos">Pedidos</Link>
                             </li>
                             <li>
                                 <button

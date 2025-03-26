@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Opciones from "./pages/Opciones";
 import Pedidos from "./pages/Pedidos";
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
             path="/login" 
             element={
               isAuthenticated ?
-                <Navigate to="/pedidos" /> :
+                <Navigate to="/opciones" /> :
                 <Login setIsAuthenticated={setIsAuthenticated} />
             }
           />
@@ -40,13 +41,23 @@ function App() {
           />
 
           <Route 
-            path="/pedidos" 
+            path="/opciones" 
+            element={
+              isAuthenticated ?
+                <Opciones/>:
+                <Navigate to="/login" />
+            }
+          />
+
+          <Route
+            path="/pedidos"
             element={
               isAuthenticated ?
                 <Pedidos/>:
                 <Navigate to="/login" />
             }
           />
+          
           <Route path="/" element={<Navigate to={isAuthenticated ? "/home" : "/login"} />} />
         </Routes>
       </Router>
