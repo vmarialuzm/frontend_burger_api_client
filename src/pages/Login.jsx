@@ -87,11 +87,11 @@ const Login = ({setIsAuthenticated}) => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen bg-fray-100">
+        <div className="flex justify-center items-center h-screen bg-[url('/images/fondo_hamburguesas.jpg')]">
             <div className="w-full max-w-md">
                 <form 
                     onSubmit={handleSubmit}
-                    className="bg-gray-100 shadow-md rounded-lg px-8 pt-6 pb-8 mb-4"
+                    className="bg-gray-100 shadow-md rounded-xl px-8 pt-6 pb-8 mb-4"
                     >
 
                     <div className="mb-6 text-center">
@@ -139,7 +139,7 @@ const Login = ({setIsAuthenticated}) => {
                     <div className="flex items-center justify-between">
                         <button 
                             type="submit" 
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline w-full"
                         >
                             Ingresar
                         </button>

@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import logo from '../assets/logo_burger.png';
 
 
 const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -12,10 +13,12 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
     }
 
     return (
-        <header className="bg-blue-500 text-white dark:bg-blue-900 dark:text-gray-200">
+        <header className="bg-white font-bold drop-shadow-xl">
             <nav className="container mx-auto flex justify-between items-center py-4">
                 {/* Logo o Título */}
-                <a href="#" className="font-bold text-xl">Burger Queen</a>
+                <Link to="/home">
+                    <img src={logo} alt="Burger Queen logo" className="h-10 w-auto"/>
+                </Link>
 
                 {/* Links de Navegación */}
                 <ul className="flex space-x-4">
@@ -37,7 +40,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
                             <li>
                                 <button
                                     onClick={handleLogout}
-                                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                                    className="text-red-500 font-bold rounded-xl cursor-pointer border-red-500 border-2 px-2 hover:bg-red-500 hover:text-white transition-colors"
                                 >
                                     Cerrar Sesión
                                 </button>

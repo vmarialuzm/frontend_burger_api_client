@@ -52,7 +52,7 @@ const Order = ({ orden, finalizarOrden, incrementarProducto, decrementarProducto
       </p>
       <button 
         onClick={finalizarOrden}
-        className="w-full py-3 bg-blue-500 hover:bg-blue-700 transition-colors text-white font-bold rounded-xl"
+        className="w-full py-3 bg-gray-500 hover:bg-gray-700 transition-colors text-white font-bold rounded-xl"
       >
         Enviar a cocina
       </button>

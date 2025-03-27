@@ -21,16 +21,16 @@ const Opciones = () => {
     
 
     return (
-        <div className="flex flex-col h-screen w-full p-4 bg-gray-100">
+        <div className="flex justify-center items-center h-screen bg-[url('/images/fondo_opciones.jpg')]">
             <div className="flex flex-col flex-grow justify-center items-center gap-6 w-full">
                 <button 
-                    className="w-full max-w-lg p-4 bg-blue-600 text-white rounded-lg text-xl font-bold hover:bg-blue-700 transition-colors shadow-lg"
+                    className="w-full max-w-lg p-4 bg-gray-600 text-white rounded-xl text-xl font-bold hover:bg-blue-700 transition-colors shadow-lg"
                     onClick={() => setShowModal(true)}
                 >
                     Ingresar pedido
                 </button>
                 <button 
-                    className="w-full max-w-lg p-4 bg-pink-600 text-white rounded-lg text-xl font-bold hover:bg-blue-700 transition-colors shadow-lg"
+                    className="w-full max-w-lg p-4 bg-pink-600 text-white rounded-xl text-xl font-bold hover:bg-blue-700 transition-colors shadow-lg"
                     onClick={() => navigate("/pedidos")}
                 >
                     Ver los pedidos
