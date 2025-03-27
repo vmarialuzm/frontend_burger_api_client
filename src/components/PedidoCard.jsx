@@ -16,7 +16,7 @@ const PedidoCard = ({ pedido }) => {
             ref={setNodeRef}
             {...listeners}
             {...attributes}
-            className="p-4 my-4 bg-blue-500 rounded-xl shadow-xl text-white hover:bg-blue-600 transition-colors"
+            className="p-4 my-4 rounded-xl shadow-xl border-2 border-[#30a65e] bg-white hover:bg-[#30a65e] transition-colors hover:text-white "
         >
             <h2 className="font-bold text-xl">{pedido.client}</h2>
             <p className="mt-1">{pedido.status}</p>
