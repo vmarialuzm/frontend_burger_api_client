@@ -1,12 +1,48 @@
-# React + Vite
+# Burger Queen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto de Laboratoria que consiste en una aplicación de pedidos de un restaurante.
 
-Currently, two official plugins are available:
+### Login
+Se loguean los meseros o los jefes de cocina.
+![banner](./public/images/login.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Opciones
+Pueden elegir entre 2 opciones: Ingresar Pedido o Ver los pedidos.
+![banner](./public/images/opciones.png)
 
-## Expanding the ESLint configuration
+### Home
+Luego de escribir el nombre del cliente, puede elegir las comidas (desayuno, almuerzo o cena), y puede ver de manera automática como se va calculando los precios.
+![banner](./public/images/home.png)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Pedido
+En la opción ver los pedidos puede ver todos los pedidos en una vista kanban según sus estados, y puede mover las cards (drag and drop), logré implementar esta funcionalidad con la librería [dnd-kit](https://dndkit.com/) y también tiene alertas con [sweetalert2](https://sweetalert2.github.io/).
+![banner](./public/images/pedido.png)
+
+### 🛠️ Tecnologías
+- [React](https://react.dev)
+- [TailwindCSS 4.0](https://tailwindcss.com)
+
+### 🔧 Instalación
+
+Clona el repositorio
+```sh
+git clone git@github.com:vmarialuzm/frontend_burger_api_client.git
+```
+
+Ingresar a la carpeta
+```sh
+cd frontend_burger_api_client
+```
+
+Instala las dependencias
+```sh
+npm install
+```
+
+Inicia el proyecto en modo desarrollo
+```sh
+npm run dev
+```
+
+
+
