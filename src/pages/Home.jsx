@@ -1,11 +1,13 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect} from "react"
+import { useNavigate } from "react-router-dom"
+import Swal from 'sweetalert2'
 import ProductList from "../components/ProductList"
 import Filtros from "../components/Filtros"
 import Order from "../components/Order"
 
 
 const Home = () => {
-
+    const navigate = useNavigate();
     const [query, setQuery] = useState('desayuno')
 
     // Estado para la orden completa
@@ -67,11 +69,11 @@ const Home = () => {
       }))
     };
 
-  // Verificar que client no esté vacío
-  if (!payload.client) {
-    console.log("El cliente no ha sido establecido");
-    return;
-  }
+    // Verificar que client no esté vacío
+    if (!payload.client) {
+      console.log("El cliente no ha sido establecido");
+      return;
+    }
 
     try {
       const response = await fetch('http://127.0.0.1:8000/orders/orders/', {
@@ -79,8 +81,23 @@ const Home = () => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
       });
+      const data = await response.json();
+      console.log(data.total)
+      if (data.total === "0.00") {
+        Swal.fire({
+          title: "No se puede enviar una orden sin productos",
+          icon: "error",
+          draggable: true
+        });
+        return;
+      }
       if (response.ok) {
-        console.log("Orden enviada con éxito");
+        Swal.fire({
+          title: "Orden creada con éxito!",
+          icon: "success",
+          draggable: true
+        });
+        navigate("/pedidos")
       
       } else {
         console.log("Error al enviar la orden");
